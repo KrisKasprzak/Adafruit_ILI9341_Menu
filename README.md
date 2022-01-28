@@ -21,12 +21,16 @@ This library includes two menu objects
 
 <br>
 To activate touch usage specify true in the menu object creation step
-EditMenu(Adafruit_ILI9341 *YourDisplayObject, true);
-ItemMenu(Adafruit_ILI9341 *YourDisplayObject, true);
+<ul>
+  <li>EditMenu(Adafruit_ILI9341 *YourDisplayObject, true);</li>
+  <li>ItemMenu(Adafruit_ILI9341 *YourDisplayObject, true);</li>
+</ul> 
 <br>
 To activate mechanical input usage specify false (default) in the menu object creation step
-EditMenu(Adafruit_ILI9341 *YourDisplayObject, false);
-ItemMenu(Adafruit_ILI9341 *YourDisplayObject, false);
+<ul>
+  <li>EditMenu(Adafruit_ILI9341 *YourDisplayObject, false);</li>
+  <li>ItemMenu(Adafruit_ILI9341 *YourDisplayObject, false);</li>
+</ul> 
 <br>
 <br>
  <b>Library highlights</b>
