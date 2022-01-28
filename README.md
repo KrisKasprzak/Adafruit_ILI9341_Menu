@@ -19,6 +19,16 @@ This library includes two menu objects
 <br>
 <b>Watch this YouTube video to see the library with mechanical input:</b> https://youtu.be/KUi9f4hcV6A
 
+<br>
+To activate touch usage specify true in the menu object creation step
+EditMenu(Adafruit_ILI9341 *YourDisplayObject, true);
+ItemMenu(Adafruit_ILI9341 *YourDisplayObject, true);
+<br>
+To activate mechanical input usage specify false (default) in the menu object creation step
+EditMenu(Adafruit_ILI9341 *YourDisplayObject, false);
+ItemMenu(Adafruit_ILI9341 *YourDisplayObject, false);
+<br>
+<br>
  <b>Library highlights</b>
   <ul>
   <li>Support for menu selections using touch screens</li> 
