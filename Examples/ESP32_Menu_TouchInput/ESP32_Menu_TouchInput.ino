@@ -2223,3 +2223,90 @@ int ProcessButtonPress(EditMenu &TheMenu) {
 
   return TheItem;
 }
+
+/*
+class  EditMenu {
+		
+	EditMenu(Adafruit_ILI9341 *Display,bool EnableTouch = false);
+
+	void init(uint16_t TextColor, uint16_t BackgroundColor, 
+		uint16_t HighlightTextColor, uint16_t HighlightColor,
+		uint16_t SelectedTextColor, uint16_t SelectedColor,
+		uint16_t MenuColumn, uint16_t ItemRowHeight,uint16_t MaxRow,
+		const char *TitleText, const GFXfont &ItemFont, const GFXfont &TitleFont);
+
+	int addNI(const char *ItemText, float Data, float LowLimit, float HighLimit, 
+		float Increment, byte DecimalPlaces = 0, const char **ItemMenuText = NULL);
+
+	int addMono(const char *ItemText, float Data, float LowLimit, float HighLimit, 
+		float Increment, byte DecimalPlaces = 0,const char **ItemMenuText = NULL, 
+		const unsigned char *Bitmap = nullptr, uint8_t BitmapWidth = 0, uint8_t BitmapHeight = 0);
+
+	int add565(const char *ItemText, float Data, float LowLimit, float HighLimit, 
+		float Increment, byte DecimalPlaces = 0, const char **ItemMenuText = NULL, 
+		const uint16_t *Bitmap = nullptr, uint8_t BitmapWidth = 0, uint8_t BitmapHeight = 0);
+	
+	int selectRow();
+	void draw();
+	void MoveUp();
+	void MoveDown();
+	void setTitleColors(uint16_t TitleTextColor, uint16_t TitleFillColor);
+	void setTitleBarSize(uint16_t TitleTop, uint16_t TitleLeft, uint16_t TitleWith, uint16_t TitleHeight);
+	void setTitleText( char *TitleText,  char *ExitText);
+	void setTitleTextMargins(uint16_t LeftMargin, uint16_t TopMargin);
+	void setIncrementDelay(uint16_t Delay);
+	void setMenuBarMargins(uint16_t LeftMargin, uint16_t Width, uint16_t BorderRadius, uint16_t BorderThickness);
+	void setItemColors( uint16_t DisableTextColor, uint16_t BorderColor, uint16_t EditModeBorderColor = 0);
+	void setItemTextMargins(uint16_t LeftMargin, uint16_t TopMargin, uint16_t MenuMargin);
+	void setItemText(int ItemID, const char *ItemText);
+	void setIconMargins(uint16_t LeftMargin, uint16_t TopMargin);
+	void SetItemValue(int ItemID, float ItemValue);
+	void SetAllColors(uint16_t TextColor, uint16_t BackgroundColor, 
+							uint16_t HighlightTextColor, uint16_t HighlightColor, uint16_t HighlightBorderColor,
+							uint16_t SelectedTextColor, uint16_t SelectedColor, uint16_t SelectBorderColor,
+							uint16_t DisableTextColor ,	uint16_t TitleTextColor, uint16_t TitleFillColor);
+	void disable(int ID);
+	void enable(int ID);
+	bool getEnableState(int ID);
+  int press(int16_t ScreenX, int16_t ScreenY);
+	void drawRow(int ID);
+	float value[MAX_OPT];
+	int item;
+
+class  ItemMenu {
+
+	ItemMenu(Adafruit_ILI9341 *Display, bool EnableTouch = false);
+	
+	void init(uint16_t TextColor, uint16_t BackgroundColor,
+		uint16_t HighlightTextColor, uint16_t HighlightColor, 
+		uint16_t ItemRowHeight,uint16_t MaxRow,
+		const char *TitleText, const GFXfont &ItemFont, const GFXfont &TitleFont);
+		
+	int addNI(const char *ItemLabel);
+	int addMono(const char *ItemLabel, const unsigned char *Bitmap, uint8_t BitmapWidth, uint8_t BitmapHeight );
+	int add565(const char *ItemLabel, const uint16_t *Bitmap, uint8_t BitmapWidth, uint8_t BitmapHeight);
+	void draw();
+  void MoveUp();
+	void MoveDown();
+	int selectRow();
+	void setTitleColors(uint16_t TitleTextColor, uint16_t TitleFillColor);
+	void setTitleBarSize(uint16_t TitleTop, uint16_t TitleLeft, uint16_t TitleWith, uint16_t TitleHeight);
+	void setTitleText( char *TitleText,  char *ExitText);
+	void setTitleTextMargins(uint16_t LeftMargin, uint16_t TopMargin);
+	void setMenuBarMargins(uint16_t LeftMargin, uint16_t Width, byte BorderRadius, byte BorderThickness);
+	void setItemColors( uint16_t DisableTextColor, uint16_t BorderColor);
+	void setItemTextMargins(uint16_t LeftMargin, uint16_t TopMargin, uint16_t MenuMargin);
+	void setItemText(int ItemID, const char *ItemText);
+	void setIconMargins(uint16_t LeftMargin, uint16_t TopMargin);
+	void SetAllColors(uint16_t TextColor, uint16_t BackgroundColor, uint16_t HighlightTextColor, uint16_t HighlightColor, 
+		uint16_t HighLightBorderColor, uint16_t DisableTextColor, uint16_t TitleTextColor, uint16_t TitleFillColor);
+	void disable(int ID);
+	void enable(int ID);
+	bool getEnableState(int ID);
+	int press(int16_t ScreenX, int16_t ScreenY);
+	void drawRow(int ID, uint8_t style);
+	float value[MAX_OPT];
+	int item;
+
+*/
+
