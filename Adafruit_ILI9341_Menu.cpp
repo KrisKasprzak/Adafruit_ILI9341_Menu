@@ -657,7 +657,8 @@ void EditMenu::drawRow(int ID) {
         d->fillRoundRect(bs + thick,  isy - irh + (irh * hr) + thick,  irw - bs - (2 * thick),  irh - (2 * thick),  radius,   backcolor);
       }
       else {
-        d->fillRect(bs,       isy - irh + (irh * hr) ,     irw - bs  ,        irh, backcolor);
+        d->fillRect(bs,       isy - irh + (irh * hr) ,     irw - bs  ,        irh, sbcolor);
+	d->fillRect(bs + thick,  isy - irh + (irh * hr) + thick,  irw - bs - (2 * thick),  irh - (2 * thick),  backcolor);
       }
     }
 
@@ -670,7 +671,8 @@ void EditMenu::drawRow(int ID) {
           d->fillRoundRect(bs + thick,  isy - irh + (irh * hr) + thick,  irw - bs - (2 * thick),  irh - (2 * thick),  radius,   backcolor);
         }
         else {
-          d->fillRect(bs,       isy - irh + (irh * hr) ,     irw - bs  ,        irh, backcolor);
+          d->fillRect(bs,       isy - irh + (irh * hr) ,     irw - bs  ,        irh, sbcolor);
+          d->fillRect(bs + thick,  isy - irh + (irh * hr) + thick,  irw - bs - (2 * thick),  irh - (2 * thick),  backcolor);
         }
 
       }
