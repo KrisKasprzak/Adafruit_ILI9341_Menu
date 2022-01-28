@@ -1,23 +1,26 @@
 <b><h2><center>Version 1.0 updated 1/11/2021</center></h1></b>
 1. Initial library posting
+2. Added support for Touch input
 
-<b><h2><center>Menu System for Adafruit_ILI9341 displays and mechanical input buttons</center></h1></b>
+<b><h2><center>Menu System for Adafruit_ILI9341 displays with touch or mechanical input</center></h1></b>
 
 This library will simplify creating and implementing a menu system for TFT displays that use the Adafruit_ILI9341 displays with microcontrollers such as the ESP32. See my other repository for the ILI8341_t3 for Teensy-based projects.
-
+<br>
 This library includes two menu objects
-
+<br>
 
   1) A simple selection menu (ItemMenu) where the user can scroll up/down and select
   an item and some programmer defined action can be performed such as drawing a screen or activating a sub menu
   2) A menu with in-line edit capability (EditMenu) where the user can scroll up/down the list and select an item
-  however the difference is that move/up down on a selected item will then scroll the values stored with that
+  however, the difference is that move/up down on a selected item will then scroll the values stored with that
   menu item, selecting a selected item will restore control to moving up/down the menu list
 
 <b>Watch this YouTube video:</b> https://youtu.be/KUi9f4hcV6A
 
  <b>Library highlights</b>
   <ul>
+  <li>Support for menu selections using touch screens</li> 
+  <li>Support for menu selections using mechanical input such as rotary encoders or buttons</li> 
   <li>Automatic wrapping for menu rows that exceed screen size</li> 
   <li>For EditMenu objects, edits can be within a defined range or from an array</li> 
   <li>Menus can include no icon, mono icon, or color icons</li> 
@@ -32,7 +35,7 @@ This library includes two menu objects
 </ul> 
   <br>
   <br>
-While this library was created for either the ILI9341_t3 and intended for Teensy-based MCU's or Adafruit_ILI9341 dricers, the library can be adapted to other display drivers. Note the driver must use the Adafruit_GFX libraries. To allow other display drivers, modify the lines in the .h and .cpp files to allow a different driver to be passed in. For example change call such as SliderH(ILI9341_t3 *disp,... to SliderH(Adafruit_RA8875 *disp,... and in the .cpp files you may have to change how fonts are set setFont(&SomeFont)
+While this library was created for Adafruit_ILI9341 drivers, the library can be adapted to other display drivers. Note the driver must use the Adafruit_GFX libraries. To allow other display drivers, modify the lines in the .h and .cpp files to allow a different driver to be passed in. For example change call such as SliderH(ILI9341_t3 *disp,... to SliderH(Adafruit_RA8875 *disp,... and in the .cpp files you may have to change how fonts are passed in using either setFont(&SomeFont) or setFont(SomeFont)
 <br>
 <br>
 
@@ -59,4 +62,5 @@ I have included an example that shows how to create multi-menu system with both 
 <b><h2><center>Revision history</center></h1></b>
 <br>
 1.0		1/11/22   initial code<br>
+2.0		1/28/22   added touch support<br>
 
