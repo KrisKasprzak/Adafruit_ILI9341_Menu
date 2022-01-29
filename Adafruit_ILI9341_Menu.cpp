@@ -534,7 +534,7 @@ void EditMenu::drawRow(int ID) {
   int hr = ID - sr;
   bool drawarrow = false;
 
-  uint16_t textcolor, backcolor;
+  uint16_t textcolor, backcolor, sbackcolor;
 
   moredown = false;
   moreup = false;
@@ -569,22 +569,22 @@ void EditMenu::drawRow(int ID) {
       if (!rowselected) {
         textcolor = itc;
         backcolor = ibc;
+	    sbackcolor = ibc;
       }
       else {
         // case draw row is the selected row
         textcolor = istc;
         backcolor = isbc;
+	    sbackcolor = sbcolor;
       }
     }
     else {
       // case draw row is not the selected row
       textcolor = itc;
       backcolor = ibc;
+      sbackcolor = ibc;
     }
 
-    if (!enablestate[hr]) {
-      textcolor = ditc;
-    }
   }
   else {
     if ((cr + sr) == ID) {
@@ -593,6 +593,7 @@ void EditMenu::drawRow(int ID) {
         // case 1 draw som is draw row AND highlighted
         textcolor = ihtc;
         backcolor = ihbc;
+	sbackcolor = ibc;
         drawarrow = true;
 
       }
@@ -600,6 +601,7 @@ void EditMenu::drawRow(int ID) {
         // case 2 = current row is draw row AND highlighted
         textcolor = istc;
         backcolor = isbc;
+	sbackcolor = bcolor;
         drawarrow = false;
 
       }
@@ -613,6 +615,7 @@ void EditMenu::drawRow(int ID) {
         textcolor = ditc;
       }
       backcolor = ibc;
+      sbackcolor = ibc;
       drawarrow = true;
     }
   }
@@ -653,11 +656,11 @@ void EditMenu::drawRow(int ID) {
     if (!enabletouch) {
       // non touch
       if (radius > 0) {
-        d->fillRoundRect(bs,      isy - irh + (irh * hr) ,     irw - bs,       irh,        radius,   sbcolor);
+        d->fillRoundRect(bs,      isy - irh + (irh * hr) ,     irw - bs,       irh,        radius,   sbackcolor);
         d->fillRoundRect(bs + thick,  isy - irh + (irh * hr) + thick,  irw - bs - (2 * thick),  irh - (2 * thick),  radius,   backcolor);
       }
       else {
-        d->fillRect(bs,       isy - irh + (irh * hr) ,     irw - bs  ,        irh, sbcolor);
+        d->fillRect(bs,       isy - irh + (irh * hr) ,     irw - bs  ,        irh, sbackcolor);
 	d->fillRect(bs + thick,  isy - irh + (irh * hr) + thick,  irw - bs - (2 * thick),  irh - (2 * thick),  backcolor);
       }
     }
@@ -667,12 +670,12 @@ void EditMenu::drawRow(int ID) {
       if (rowselected) {
 
         if (radius > 0) {
-          d->fillRoundRect(bs,      isy - irh + (irh * hr) ,     irw - bs,       irh,        radius,   sbcolor);
+          d->fillRoundRect(bs,      isy - irh + (irh * hr) ,     irw - bs,       irh,        radius,   sbackcolor);
           d->fillRoundRect(bs + thick,  isy - irh + (irh * hr) + thick,  irw - bs - (2 * thick),  irh - (2 * thick),  radius,   backcolor);
         }
         else {
-          d->fillRect(bs,       isy - irh + (irh * hr) ,     irw - bs  ,        irh, sbcolor);
-          d->fillRect(bs + thick,  isy - irh + (irh * hr) + thick,  irw - bs - (2 * thick),  irh - (2 * thick),  backcolor);
+          d->fillRect(bs,       isy - irh + (irh * hr) ,     irw - bs  ,        irh, sbackcolor);
+	  d->fillRect(bs + thick,  isy - irh + (irh * hr) + thick,  irw - bs - (2 * thick),  irh - (2 * thick),  backcolor);
         }
 
       }
@@ -682,10 +685,12 @@ void EditMenu::drawRow(int ID) {
 
       }
     }
-
+    if (!enablestate[ID]) {
+      textcolor = ditc;
+    }
     // write text
     itx = bs + iox;
-    d->setFont(&itemf);
+    d->setFont(itemf);
     d->setTextColor(textcolor);
     d->setCursor(itx , isy - irh + (irh * hr) + ioy);
     d->print(itemlabel[ID]);
