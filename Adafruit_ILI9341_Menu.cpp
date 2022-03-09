@@ -690,7 +690,7 @@ void EditMenu::drawRow(int ID) {
     }
     // write text
     itx = bs + iox;
-    d->setFont(itemf);
+    d->setFont(&itemf);
     d->setTextColor(textcolor);
     d->setCursor(itx , isy - irh + (irh * hr) + ioy);
     d->print(itemlabel[ID]);
