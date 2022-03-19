@@ -908,6 +908,7 @@ bool EditMenu::getEnableState(int ID) {
 }
 
 void EditMenu::SetItemValue(int ID, float ItemValue) {
+  value[ID] = ItemValue;
   data[ID] = ItemValue;
 }
 
