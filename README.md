@@ -1,6 +1,7 @@
-<b><h2><center>Version 1.0 updated 1/11/2021</center></h1></b>
+<b><h2><center>Version 1.0 updated 9/3/2022</center></h1></b>
 1. Initial library posting
 2. Added support for Touch input
+3. fixed icon drawing when menu items exceeds rows--previous icon was not being erased
 
 <b><h2><center>Menu System for Adafruit_ILI9341 displays with touch or mechanical input</center></h1></b>
 
