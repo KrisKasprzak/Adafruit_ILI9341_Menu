@@ -14,6 +14,25 @@
   2. each item selection has a range, increment and decimal readout
   3. items can also be read from a char array
 
+
+  ESP32     display
+  3v3         VCC
+  GND         GND
+  5           TFT_CS
+  25          TFT_RESET
+  2           TFT_DC
+  23          MOSI
+  18          SCK
+  3v3         LED
+  19          MISO
+  
+  ESP32         Encoder
+  32            select button 1
+  GND           select button 2
+  27            encoder direction 1
+  33            encoder direction 2
+  GND           encoder dir ground
+  
 */
 
 // required libraries
