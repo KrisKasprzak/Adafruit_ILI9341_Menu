@@ -39,11 +39,14 @@
 #include "Adafruit_GFX.h"
 #include "Adafruit_ILI9341.h"
 #include "Adafruit_ILI9341_Menu.h"
+
+// found in \Arduino\libraries\Adafruit-GFX-Library-master
 #include "fonts\FreeSans18pt7b.h"
 #include "fonts\FreeSans12pt7b.h"
 #include "fonts\FreeSansBold12pt7b.h"
 #include "fonts\FreeSansBold9pt7b.h"
 #include "fonts\FreeSans9pt7b.h"
+
 #include <ESP32Encoder.h>  				// https://github.com/madhephaestus/ESP32Encoder
 
 #define ROW_HEIGHT          35
