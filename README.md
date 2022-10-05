@@ -2,6 +2,8 @@
 1. Initial library posting
 2. Added support for Touch input
 3. fixed icon drawing when menu items exceeds rows--previous icon was not being erased
+4. added rotary encoder example
+
 
 <b><h2><center>Menu System for Adafruit_ILI9341 displays with touch or mechanical input</center></h1></b>
 
