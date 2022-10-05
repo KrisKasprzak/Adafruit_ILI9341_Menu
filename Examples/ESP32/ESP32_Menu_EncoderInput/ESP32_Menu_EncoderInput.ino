@@ -63,7 +63,7 @@
 #define SE_PIN    32
 
 // easy way to include fonts but change globally
-#define FONT_SMALL  FreeSansBold9pt7b        // font for menus
+#define FONT_SMALL  FreeSanspt7b        // font for menus
 #define FONT_EDITTITLE  FreeSans18pt7b            // font for menus
 #define FONT_ITEM   FreeSans12pt7b         // font for menus
 #define FONT_TITLE  FreeSans18pt7b      // font for all headings
@@ -1859,7 +1859,7 @@ void setup() {
   WirelessOption13 = WirelessMenu.addNI("Broadband", 1, 0, sizeof(OffOnItems) / sizeof(OffOnItems[0]), 1, 0, OffOnItems);
   
   WirelessMenu.setTitleTextMargins(50, 30);
-  WirelessMenu.setItemTextMargins(16, 25, 5);
+  WirelessMenu.setItemTextMargins(16, 15, 5);
   WirelessMenu.setMenuBarMargins(10, 305, 4, 2);
 
   // I'm so not a fan on my API for setting select border color... this arguement should have been in the menubar thingy...
