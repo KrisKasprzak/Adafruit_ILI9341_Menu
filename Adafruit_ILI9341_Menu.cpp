@@ -938,7 +938,7 @@ void EditMenu::draw565Bitmap(int16_t x, int16_t y, const uint16_t *bitmap, uint8
 
   for (i = 0; i < h; i++) {
     for (j = 0; j < w; j++) {
-      d->drawPixel(j + x, i + y, bitmap[offset]);
+      d->drawPixel(j + x, i + y, pgm_read_word_near(bitmap + offset));
       offset++;
     }
   }
@@ -1523,7 +1523,7 @@ void ItemMenu::draw565Bitmap(int16_t x, int16_t y, const uint16_t *bitmap, uint8
 
   for (i = 0; i < h; i++) {
     for (j = 0; j < w; j++) {
-      d->drawPixel(j + x, i + y, bitmap[offset]);
+      d->drawPixel(j + x, i + y, pgm_read_word_near(bitmap + offset));
       offset++;
     }
   }
