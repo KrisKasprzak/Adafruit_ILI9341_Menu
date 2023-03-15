@@ -24,7 +24,7 @@
   rev   date      author        change
   1.0   1/2022      kasprzak      initial code
   2.0   1/2022      kasprzak      added touch support
-
+  3.0   1/2022      kasprzak      fixed font issue with MEGA
 */
 
 #include <Adafruit_ILI9341_Menu.h>  
@@ -71,8 +71,8 @@ void EditMenu::init(uint16_t TextColor, uint16_t BackgroundColor,
   imr = MaxRow;     // user has to indicate this
   iox = 0;  // pixels to offset text in menu bar
   ioy = 0;  // pixels to offset text in menu bar
-  itemf = ItemFont;     // item font
-  titlef = TitleFont;     // title font
+  itemf = &ItemFont;     // item font
+  titlef = &TitleFont;     // title font
   ttc = TextColor;      // title text color
   tfc = HighlightColor;     // title fill color
   ditc = MENU_C_DKGREY;
@@ -132,7 +132,7 @@ int EditMenu::addMono(const char *ItemText, float Data, float LowLimit, float Hi
     itemtext[totalID] = (char **) ItemMenuText;
   }
 
-  itemBitmap[totalID] = Bitmap;
+  itemBitmap[totalID] = (unsigned char*) Bitmap;
   bmp_w[totalID] = BitmapWidth;
   bmp_h[totalID] = BitmapHeight;
   IconType[totalID] = ICON_MONO;
@@ -161,7 +161,7 @@ int EditMenu::add565(const char *ItemText, float Data, float LowLimit, float Hig
     itemtext[totalID] = (char **) ItemMenuText;
   }
 
-  item565Bitmap[totalID] = Bitmap;
+  item565Bitmap[totalID] = (uint16_t* ) Bitmap;
   bmp_w[totalID] = BitmapWidth;
   bmp_h[totalID] = BitmapHeight;
   IconType[totalID] = ICON_565;
@@ -191,7 +191,7 @@ int EditMenu::selectRow() {
 
 void EditMenu::drawHeader(bool hl, uint8_t style) {
 
-  d->setFont(&titlef);
+  d->setFont(titlef);
 
   if (enabletouch) {
 
@@ -445,7 +445,7 @@ void EditMenu::drawItems() {
     }
   }
 
-  d->setFont(&itemf);
+  d->setFont(itemf);
 
   // now draw the items in the rows
   for (i = 1; i <= imr; i++) {
@@ -464,9 +464,7 @@ void EditMenu::drawItems() {
 
     if (redraw) {
       // scroll so blank out every row including icon since row will get scrolled
-      //d->fillRect(bs, isy - irh + (irh * i), irw - bs, irh, ibc); // back color
-      // need to blank out entire row icon or not....
-      d->fillRect(icox, isy - irh + (irh * i), irw , irh, ibc); // back color
+      d->fillRect(bs, isy - irh + (irh * i), irw - bs, irh, ibc); // back color
     }
 
     if (i == pr) {
@@ -692,7 +690,7 @@ void EditMenu::drawRow(int ID) {
     }
     // write text
     itx = bs + iox;
-    d->setFont(&itemf);
+    d->setFont(itemf);
     d->setTextColor(textcolor);
     d->setCursor(itx , isy - irh + (irh * hr) + ioy);
     d->print(itemlabel[ID]);
@@ -739,7 +737,7 @@ void EditMenu::setIncrementDelay(uint16_t Delay) {
 
 void EditMenu::incrementUp() {
 
-  d->setFont(&itemf);
+  d->setFont(itemf);
   d->setTextColor(istc);
 
 
@@ -786,7 +784,7 @@ void EditMenu::incrementUp() {
 
 void EditMenu::incrementDown() {
 
-  d->setFont(&itemf);
+  d->setFont(itemf);
   d->setTextColor(istc);
   if (haslist[currentID]) {
     if ((data[currentID] - inc[currentID]) >= low[currentID]) {
@@ -934,7 +932,7 @@ void EditMenu::drawMonoBitmap(int16_t x, int16_t y, const unsigned char *bitmap,
 
 void EditMenu::draw565Bitmap(int16_t x, int16_t y, const uint16_t *bitmap, uint8_t w, uint8_t h) {
 
-  uint16_t offset = 0;
+  uint32_t offset = 0;
 
   int j, i;
 
@@ -987,8 +985,8 @@ void ItemMenu::init(uint16_t TextColor, uint16_t BackgroundColor,
   imr = MaxRow;     // user has to indicate this
   iox = 0;        // pixels to offset text in menu bar
   ioy = 0;        // pixels to offset text in menu bar
-  itemf = ItemFont;     // item font
-  titlef = TitleFont;   // menu bar font, default to item font
+  itemf = &ItemFont;     // item font
+  titlef = &TitleFont;   // menu bar font, default to item font
   ttc = TextColor;    // title text color
   tfc = HighlightColor; // title fill color
   ditc = MENU_C_DKGREY;
@@ -1026,6 +1024,7 @@ int ItemMenu::addMono(const char *ItemLabel, const unsigned char *Bitmap, uint8_
   totalID++;
 
   itemBitmap[totalID] = Bitmap;
+  
   bmp_w[totalID] = BitmapWidth;
   bmp_h[totalID] = BitmapHeight;
   IconType[totalID] = ICON_MONO;
@@ -1046,12 +1045,13 @@ int ItemMenu::add565(const char *ItemLabel, const uint16_t *Bitmap, uint8_t Bitm
 
   enablestate[totalID] = true;
   strncpy(itemlabel[totalID], ItemLabel, MAX_CHAR_LEN);
+    
   return (totalID);
 }
 
 void ItemMenu::drawHeader(bool hl, uint8_t style) {
 
-  d->setFont(&titlef);
+  d->setFont(titlef);
 
   if (enabletouch) {
 
@@ -1224,7 +1224,7 @@ void ItemMenu::drawRow(int ID, uint8_t style) {
 
     // write text
     itx = bs + iox;
-    d->setFont(&itemf);
+    d->setFont(itemf);
     d->setTextColor(ihtc);
     d->setCursor(itx , isy - irh + (irh * hr) + ioy);
     d->print(itemlabel[ID]);
@@ -1304,7 +1304,7 @@ void ItemMenu::drawItems() {
     drawHeader(false, 0);
   }
 
-  d->setFont(&itemf);
+  d->setFont(itemf);
 
   // now draw the items in the rows
   for (i = 1; i <= imr; i++) {
@@ -1323,7 +1323,7 @@ void ItemMenu::drawItems() {
 
     if (redraw) {
       // scroll so blank out every row including icon since row will get scrolled
-      d->fillRect(icox, isy - irh + (irh * i), irw, irh, ibc); // back color
+      d->fillRect(bs, isy - irh + (irh * i), irw - bs, irh, ibc); // back color
     }
 
     if (i == pr) {
@@ -1517,7 +1517,7 @@ void ItemMenu::drawMonoBitmap(int16_t x, int16_t y, const unsigned char *bitmap,
 
 void ItemMenu::draw565Bitmap(int16_t x, int16_t y, const uint16_t *bitmap, uint8_t w, uint8_t h) {
 
-  uint16_t offset = 0;
+  uint32_t offset = 0;
 
   int j, i;
 
