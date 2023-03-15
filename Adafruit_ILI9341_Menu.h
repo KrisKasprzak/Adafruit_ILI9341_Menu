@@ -24,6 +24,7 @@
 	rev		date			author				change
 	1.0		1/2022			kasprzak			initial code
 	2.0   1/2022      kasprzak      added touch support
+	3.0   3/2022      kasprzak      fixed font issue with MEGA
 
 	// Website for generating icons
 	// https://javl.github.io/image2cpp/
@@ -158,8 +159,8 @@ private:
 	char itemlabel[MAX_OPT][MAX_CHAR_LEN];
 	char ttx[MAX_CHAR_LEN];
 	char etx[MAX_CHAR_LEN]; 
-	GFXfont itemf;
-	GFXfont titlef;
+	const GFXfont *itemf;
+	const GFXfont *titlef;
 	uint16_t itc, ibc, ihtc, ihbc, istc, isbc;	// item variables
 	uint16_t tbl, tbt, tbw, tbh, ttc, tfc, tox, toy;	// title variables
 	// margins
@@ -274,8 +275,8 @@ private:
 	char itemlabel[MAX_OPT][MAX_CHAR_LEN];
 	char ttx[MAX_CHAR_LEN];
 	char etx[MAX_CHAR_LEN];
-	GFXfont itemf;
-	GFXfont titlef;
+	const  GFXfont *itemf;
+	const GFXfont *titlef;
 	uint16_t bkgr, isx, itx, isy, irh, itc, ibc, ihbc, ihtc, isc, imr, irw, ioy, iox;	// item variables
 	uint16_t tbl, tbt, tbw, tbh, ttc, tfc, tox, toy, icox, icoy, di, mm;	// title variables
 	uint16_t ditc, difc, temptColor, bcolor;
