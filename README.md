@@ -6,6 +6,9 @@
 
 This library will simplify creating and implementing a menu system for TFT displays that use the Adafruit_ILI9341 displays with microcontrollers such as the ESP32. See my other repository for the ILI8341_t3 for Teensy-based projects.
 <br>
+
+<b>This library does not support Arduino UNO, NANO, however should work with the MEGA.</b>
+
 This library includes two menu objects
 <br>
 
