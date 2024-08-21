@@ -1,6 +1,5 @@
-<b><h2><center>Version 3.0 updated 3/14/2023</center></h1></b>
-1. fixed font issue if running a MEGA
-
+<b><h2><center>Version 4.0 updated 8/21/2024</center></h1></b>
+1. fixed a nasty bug if the number of menu items = the .h setting for MAX_OPT, now if you have 22 items, set MAX_OPT = 22, (before fix set to 23)
 
 <b><h2><center>Menu System for Adafruit_ILI9341 displays with touch or mechanical input</center></h1></b>
 
