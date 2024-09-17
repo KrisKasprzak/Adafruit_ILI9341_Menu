@@ -26,7 +26,7 @@
 	2.0   1/2022      kasprzak      added touch support
 	3.0   3/2022      kasprzak      fixed font issue with MEGA
  	4.0   8/2024      kasprzak      fixed font nasty bug where the array storage size could corrupt it the MAX_OPT was the same as number of menu items
-
+	4.1   9/2024	  kasprzak	fixed a bug where data variable was missing
 	// Website for generating icons
 	// https://javl.github.io/image2cpp/
 
