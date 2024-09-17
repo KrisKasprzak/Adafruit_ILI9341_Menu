@@ -177,7 +177,7 @@ private:
 	int sr, pr;
 	bool moreup = false, moredown = false;
 	uint16_t col;
-	
+	float data[MAX_OPT+1];
 	float low[MAX_OPT+1];
 	float high[MAX_OPT+1];
 	float inc[MAX_OPT+1];
